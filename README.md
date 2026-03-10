@@ -45,7 +45,9 @@ git commit -m "你的功能描述"
 
 2.拉取远程更新 (关键步骤)
 ```
-git pull --rebase
+# --rebase:直线提交
+# -v:查看拉取情况
+git pull --rebase -v
 ```
 
 3.处理可能出现的情况
