@@ -18,6 +18,8 @@ https://article.xuexi.cn/articles/video/index.html?art_id=17679906763431801254
 
 
 一个是中国大学mooc上的，南开大学:
+> 目前在学第11次开课
+
 https://www.icourse163.org/course/NKU-1205696807
 ![img.png](imgs/img2.png)
 
