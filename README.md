@@ -87,3 +87,34 @@ git gl
 
 > git gl的前提是设置了快捷命令:
 git config --global alias.gl "log --all --graph --pretty=format:'%C(yellow)%h%Creset %C(green)%ad%Creset %C(blue)[%an]%Creset %s %C(red)%d%Creset' --date=format:'%Y-%m-%d %H:%M:%S'"
+
+
+
+**修改最近一次提交（最简单）**
+如果你刚刚才完成 git commit，发现注释写错了，可以使用 --amend 参数。
+
+修改最近一次提交（在编辑器中修改）
+如果你想在弹出的文本编辑器里更详细地修改，直接输入：
+```
+git commit --amend
+```
+
+如果该提交已经 push 到了 GitHub，修改后需要执行 git push --force 覆盖远程记录（请确保没有人在和你共用这个分支）。
+
+
+
+**解决git push --force网络问题失败**
+![img.png](img.png)
+
+如果正在使用 VPN，Git 可能没有自动走你的代理通道。可以尝试给 Git 设置临时代理（假设你的代理端口是常见的 7890，请根据 VPN 实际端口修改）：
+
+```
+# 设置 HTTP 代理
+git config --global http.proxy http://127.0.0.1:7890
+# 设置 HTTPS 代理
+git config --global https.proxy http://127.0.0.1:7890
+```
+如果想取消代理，使用：
+```
+git config --global --unset http.proxy
+```
