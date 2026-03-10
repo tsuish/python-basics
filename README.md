@@ -20,7 +20,7 @@ MacBook Air M1的本地目录：待补充
 
 
 ## git操作
-如果你觉得每次输入 "origin 分支名" 太麻烦，可以执行一次：
+如果觉得每次输入 "origin 分支名" 太麻烦，可以执行一次：
 ```
 # 设置
 git push -u origin 分支名
@@ -36,21 +36,21 @@ git branch -vv
 
 为了保证代码不丢失，且提交历史清晰，最标准的流程是 **“拉取 - 解决 - 提交”**。
 
-1.保存本地修改
+**1.保存本地修改**
 > 注意：必须先 commit 到本地，否则接下来的 pull 可能会因为文件冲突而中止。
 ```
 git add .
 git commit -m "你的功能描述"
 ```
 
-2.拉取远程更新 (关键步骤)
+**2.拉取远程更新 (关键步骤)**
 ```
 # --rebase:直线提交
 # -v:查看拉取情况
 git pull --rebase -v
 ```
 
-3.处理可能出现的情况
+**3.处理可能出现的情况**
 
 **情况 A：自动合并成功。** Git 会自动创建一个“Merge”提交，你直接进入下一步即可。
 
@@ -60,10 +60,10 @@ git add <冲突的文件名>
 git commit -m "fix: 解决合并冲突"
 ```
 
-4.正式推送
+**4.正式推送**
 
 ```
-git push origin 分支名
+git push
 ```
 
 
@@ -75,3 +75,15 @@ git push origin 分支名
 git pull --rebase origin main
 ```
 它的原理是： 把你本地还没上传的 commit 先“摘下来”，把远程的新代码接在后面，最后再把你那几个 commit “补”在最顶端。这样你的提交历史看起来就像一条直线。
+
+
+**查看快照**
+```
+git log --all --graph --oneline
+
+# 或者
+git gl
+```
+
+> git gl的前提是设置了快捷命令:
+git config --global alias.gl "log --all --graph --pretty=format:'%C(yellow)%h%Creset %C(green)%ad%Creset %C(blue)[%an]%Creset %s %C(red)%d%Creset' --date=format:'%Y-%m-%d %H:%M:%S'"
